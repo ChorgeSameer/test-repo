@@ -1,0 +1,45 @@
+<H1>Product</H1>
+      
+        <div class="container">
+          
+          <div class="alert alert-warning" *ngIf="productForm.dirty && description.invalid">Enter atleast 5 characters in Description</div>
+          
+            <form (ngSubmit)="!productForm.invalid && saveProduct()" #productForm="ngForm">
+              <fieldset class="form-group">
+                <label>Product Name</label>
+                <input type="text" #name="ngModel" 
+                      [(ngModel)]="product.name" class="form-control" 
+                          name="name" required="required">
+              </fieldset>
+
+              <fieldset class="form-group">
+                <label>SKU</label>
+                <input type="text" #sku="ngModel" 
+                      [(ngModel)]="product.sku" class="form-control" 
+                          name="sku" required="required">
+              </fieldset>
+
+              <fieldset class="form-group">
+                <label>Description</label>
+                <input type="text" #description="ngModel" 
+                      [(ngModel)]="product.description" class="form-control" 
+                          name="description" required="required">
+              </fieldset>
+
+              <fieldset class="form-group">
+                <label>Price</label>
+                <input type="number" #price="ngModel" 
+                      [(ngModel)]="product.price" class="form-control" 
+                          name="price" required="required">
+              </fieldset>
+              
+              <fieldset class="form-group">
+                <label>Stock Level</label>
+                <input type="number" #stock="ngModel" 
+                      [(ngModel)]="product.stock" class="form-control" 
+                          name="stock" required="required">
+              </fieldset>
+
+              <button (click)="refresh()" type="submit" class="btn btn-success">Save</button>
+            </form>  
+          </div>
